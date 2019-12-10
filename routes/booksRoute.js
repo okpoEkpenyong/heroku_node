@@ -5,8 +5,7 @@ const db = require('../controllers/booksController');
 
 router.get('/', (req, res) => {
 
-   res.render({title: 'TeamWork-ISNetwork App'}); 
-  // res.send(JSON.stringify({Hello: 'My Books World!'}))
+   res.send(JSON.stringify({Hello: 'My Books World!'}))
 });
 
 router.get('/api/v1/books', db.getAllBooks);
