@@ -4,8 +4,7 @@ const db = require('../controllers/booksController');
 
 
 router.get('/', (req, res) => {
-
-   res.send(JSON.stringify({Hello: 'Book People!'+ '...append /api/v1/books to this uri to see current books. Enjoy!'}))
+   res.redirect(301, 'https://documenter.getpostman.com/view/9382723/SWE84wuB');
 });
 
 router.get('/api/v1/books', db.getAllBooks);
