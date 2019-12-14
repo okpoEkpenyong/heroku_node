@@ -8,7 +8,7 @@ const getAllBooks = async (request, response) => {
      const result = await client.query({
        text: 'SELECT * FROM books ', 
      })
-     //await client.end()
+     await client.end()
      response.status(200).send({status: 'success',message: 'All Books info successfully retrieved!',data: result.rows,
      });
     } 
