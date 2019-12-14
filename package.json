@@ -8,7 +8,11 @@
     "npm": "6.11.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "set NODE_ENV=test  && nyc --require @babel/register  mocha ./test/test.js --timeout 2000 --exit",
+    "generate-lcov": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
     "start": "node server.js",
     "heroku-postbuild": "npm install --production"
   },
